@@ -18,7 +18,22 @@ class BurgerBuilder extends Component {
         meat: 0,
       },
       totalPrice: 4,
+      purchasable: false,
     };
+  }
+
+  updatePurchaseState(ingredients) {
+    //state contains dictionary object, I used the object.keys method, passed
+    //in the name of the dictionary. this returns the keys,
+    //i mapped this new array to return the values we want by mapping keys to values in dictionary.
+    const sum = Object.keys(ingredients)
+      .map((key) => {
+        return ingredients[key];
+      })
+      .reduce((sum, el) => {
+        return sum + el;
+      }, 0);
+    this.setState({ purchasable: sum > 0 });
   }
 
   addIngredientHandler = (type) => {
@@ -34,6 +49,7 @@ class BurgerBuilder extends Component {
     const newPrice = oldPrice + currentPrice;
 
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
+    this.updatePurchaseState(updatedIngredients);
   };
 
   removeIngredientHandler = (type) => {
@@ -50,8 +66,8 @@ class BurgerBuilder extends Component {
     const currentPrice = PRICES[type];
     const oldPrice = this.state.totalPrice;
     const newPrice = oldPrice - currentPrice;
-
     this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
+    this.updatePurchaseState(updatedIngredients);
 
     console.log("remove");
   };
@@ -71,6 +87,7 @@ class BurgerBuilder extends Component {
           addIngredients={this.addIngredientHandler}
           disabled={disabled}
           totalPrice={this.state.totalPrice}
+          purchasable={this.state.purchasable}
         />
       </React.Fragment>
     );
