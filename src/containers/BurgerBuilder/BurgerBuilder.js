@@ -10,9 +10,21 @@ const PRICES = {
   meat: 2.5,
 };
 
+const BASE_STATE = {
+  ingredients: {
+    salad: 0,
+    cheese: 0,
+    meat: 0,
+  },
+  totalPrice: 4,
+  purchasable: false,
+  purchasing: false,
+};
+
 class BurgerBuilder extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       ingredients: {
         salad: 0,
@@ -24,6 +36,13 @@ class BurgerBuilder extends Component {
       purchasing: false,
     };
   }
+
+  resetState = () => {
+    // const reset = Object.assign(BASE_STATE, this.state);
+    // this.setState({ reset });
+    // console.log(this.state);
+    // this.removeBackdrop();
+  };
 
   updatePurchaseState(ingredients) {
     //state contains dictionary object, I used the object.keys method, passed
@@ -41,7 +60,7 @@ class BurgerBuilder extends Component {
 
   purchaseHandler = () => {
     this.setState({ purchasing: true });
-    console.log("purchase handler");
+    console.log(this.state);
   };
 
   addIngredientHandler = (type) => {
@@ -79,8 +98,12 @@ class BurgerBuilder extends Component {
     console.log("remove");
   };
 
-  removeBackdrop = (props) => {
+  removeBackdrop = () => {
     this.setState({ purchasing: false });
+  };
+
+  purchaseContinueHandler = () => {
+    alert("You continue!");
   };
   render() {
     const disabled = {
@@ -93,7 +116,12 @@ class BurgerBuilder extends Component {
     return (
       <React.Fragment>
         <Modal show={this.state.purchasing} modalClosed={this.removeBackdrop}>
-          <OrderSummary ingredients={this.state.ingredients} />
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            purchaseCancelled={this.removeBackdrop}
+            purchaseContinue={this.purchaseContinueHandler}
+            price={this.state.totalPrice.toFixed(2)}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
@@ -103,6 +131,7 @@ class BurgerBuilder extends Component {
           totalPrice={this.state.totalPrice}
           purchasable={this.state.purchasable}
           ordered={this.purchaseHandler}
+          reset={this.resetState}
         />
       </React.Fragment>
     );
