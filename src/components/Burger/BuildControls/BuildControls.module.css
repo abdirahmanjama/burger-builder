@@ -1,0 +1,24 @@
+.BuildControls {
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  box-shadow: 0 2px 1px lightgray;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.price {
+  display: inline-block;
+  font: inherit;
+  padding: 15px 32px;
+  border: none;
+  border: 1px solid #804600;
+  text-align: center;
+  background-color: #804600;
+
+  font-weight: bold;
+  font-family: inherit;
+  color: white;
+}
