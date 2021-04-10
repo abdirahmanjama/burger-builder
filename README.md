@@ -1,3 +1,13 @@
+I started my React journey on April 1st 2021. This is my very first React project. This project is not yet complete, I intend on enhancing it by a payment system using Stripe and also adding user authentication/authorisation via Firebase. 
+
+Application main page:
+
+[alt-text](https://user-images.githubusercontent.com/45077645/114280258-529c1300-9a30-11eb-960b-9e58f8cbef52.PNG)
+
+Checkout: 
+
+[alt-text](https://user-images.githubusercontent.com/45077645/114280260-5334a980-9a30-11eb-9027-e3171b3f655f.PNG)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
