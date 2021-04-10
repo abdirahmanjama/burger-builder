@@ -2,11 +2,11 @@ I started my React journey on April 1st 2021. This is my very first React projec
 
 Application main page:
 
-[alt-text](https://user-images.githubusercontent.com/45077645/114280258-529c1300-9a30-11eb-960b-9e58f8cbef52.PNG)
+![alt-text](https://user-images.githubusercontent.com/45077645/114280258-529c1300-9a30-11eb-960b-9e58f8cbef52.PNG)
 
 Checkout: 
 
-[alt-text](https://user-images.githubusercontent.com/45077645/114280260-5334a980-9a30-11eb-9027-e3171b3f655f.PNG)
+![alt-text](https://user-images.githubusercontent.com/45077645/114280260-5334a980-9a30-11eb-9027-e3171b3f655f.PNG)
 
 # Getting Started with Create React App
 
